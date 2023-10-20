@@ -13,15 +13,15 @@ const SideBar = () => {
 
       <nav className='mt-5 list-none'>
         <li className={router.pathname === '/' ? 'bg-blue-800 p-2' : 'p-2'}>
-          <Link href='/'>
-            <a className='text-white mb-2 block'>Clients</a>
+          <Link href='/' className='text-white mb-2 block'>
+            Clients
           </Link>
         </li>
         <li
           className={router.pathname === '/orders' ? 'bg-blue-800 p-2' : 'p-2'}
         >
-          <Link href='/orders'>
-            <a className='text-white mb-2 block'>Orders</a>
+          <Link href='/orders' className='text-white mb-2 block'>
+            Orders
           </Link>
         </li>
         <li
@@ -29,8 +29,8 @@ const SideBar = () => {
             router.pathname === '/products' ? 'bg-blue-800 p-2' : 'p-2'
           }
         >
-          <Link href='/products'>
-            <a className='text-white mb-2 block'>Products</a>
+          <Link href='/products' className='text-white mb-2 block'>
+            Products
           </Link>
         </li>
       </nav>
@@ -43,8 +43,8 @@ const SideBar = () => {
             router.pathname === '/bestsellers' ? 'bg-blue-800 p-2' : 'p-2'
           }
         >
-          <Link href='/bestsellers'>
-            <a className='text-white mb-2 block'>Best Sellers</a>
+          <Link href='/bestsellers' className='text-white mb-2 block'>
+            Best Sellers
           </Link>
         </li>
         <li
@@ -52,8 +52,8 @@ const SideBar = () => {
             router.pathname === '/bestcustomers' ? 'bg-blue-800 p-2' : 'p-2'
           }
         >
-          <Link href='/bestcustomers'>
-            <a className='text-white mb-2 block'>Best Customers</a>
+          <Link href='/bestcustomers' className='text-white mb-2 block'>
+            Best Customers
           </Link>
         </li>
       </nav>
