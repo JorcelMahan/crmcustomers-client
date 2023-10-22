@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
 import { GET_USER } from '../gql/user';
+import Loader from './Loader';
 
 const Header = () => {
   const router = useRouter();
@@ -9,7 +10,7 @@ const Header = () => {
   const { data, loading, error } = useQuery(GET_USER);
 
   // Protect access to data
-  if (loading) return null;
+  if (loading) return <Loader />;
 
   // If there is no information
   if (!data.getUser) {

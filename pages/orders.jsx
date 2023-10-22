@@ -3,11 +3,12 @@ import Order from '../components/Order';
 import Link from 'next/link';
 import { useQuery } from '@apollo/client';
 import { GET_ORDERS_SELLER } from '../gql/order';
+import Loader from '@/components/Loader';
 
 const Orders = () => {
   const { data, loading, error } = useQuery(GET_ORDERS_SELLER);
 
-  if (loading) return 'Loading...';
+  if (loading) return <Loader />;
   if (error) return `Error: ${error.message}`;
 
   const { getOrdersSeller } = data;

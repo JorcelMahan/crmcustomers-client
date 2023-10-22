@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 import { UPDATE_ORDER, DELETE_ORDER, GET_ORDERS_SELLER } from '../gql/order';
 
 const Order = ({ order }) => {
+  console.log('order', order);
+
   const {
     id,
     total,
@@ -139,7 +141,7 @@ const Order = ({ order }) => {
         )}
         <h2 className='text-gray-800 font-bold mt-10'>Order State:</h2>
         <select
-          className='mt-2 appearance-none bg-blue-600 border border-blue-600 text-white p-2 rounded leading-tight focus:outline-none focus:bg-blue-600 focus:border-blue-500 uppercase text-xs font-bold'
+          className='mt-2 appearance-none bg-blue-600 border border-blue-600 text-white p-2 text-center rounded leading-tight focus:outline-none focus:bg-blue-600 focus:border-blue-500 uppercase text-xs font-bold'
           value={orderState}
           onChange={e => changeOrderState(e.target.value)}
         >

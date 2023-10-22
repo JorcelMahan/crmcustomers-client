@@ -3,17 +3,21 @@ import Client from "../components/Client";
 import Link from "next/link";
 import { useQuery } from "@apollo/client";
 import { GET_CLIENTS_SELLER } from "../gql/client";
+import { useRouter } from "next/router";
+import Loader from "@/components/Loader";
 
 const Index = () => {
 
   const { data, loading, error } = useQuery(GET_CLIENTS_SELLER);
+  const router = useRouter();
 
-  if (loading) return "Loading...";
+  if (loading) return <Loader />;
   if (error) return `Error ${error.message}`;
 
   if (!data.getClientsSeller) {
     return router.push('/login');
   };
+
 
   return (
     <Layout>

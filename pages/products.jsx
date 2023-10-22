@@ -1,13 +1,23 @@
+import { useEffect } from 'react';
 import Layout from '../components/Layout';
 import Product from '../components/Product';
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../gql/product';
 import Link from 'next/link';
+import Loader from '@/components/Loader';
 
 const Products = () => {
-  const { data, loading, error } = useQuery(GET_PRODUCTS);
+  const { data, loading, error, startPolling, stopPolling } =
+    useQuery(GET_PRODUCTS);
 
-  if (loading) return 'Loading...';
+  useEffect(() => {
+    startPolling(1000);
+    return () => {
+      stopPolling;
+    };
+  }, [startPolling, stopPolling]);
+
+  if (loading) return <Loader />;
   if (error) return `Error! ${error.message}`;
 
   return (
